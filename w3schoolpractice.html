@@ -1,0 +1,219 @@
+<html>
+    <body onclick="console.log('body click')">
+        <div onclick="console.log('div click')">
+            <input type="button" value="click me" onclick="console.log('button click')"/>
+        </div>
+        
+        
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+            
+            </canvas>
+        <div id="parent"><span>Span</span><strong>Strong</strong></div>
+        <script>
+            var parent=document.getElementById('parent');
+        </script>
+    </body>
+</html>
+<script type="text/javascript">
+    
+// function Emp(id,name) {
+//   this.id = id;
+//   this.name = name;
+// }
+// function PermanentEmp(id,name) {
+//  Emp.call(this,id,name);
+// }
+// function TemporaryEmp(id,name) {
+//  Emp.call(this,id,name);
+// }
+// function t(q,s){
+//  Emp.call(this,q,s);
+// }
+// var p_emp=new PermanentEmp(101,"John Martin");
+// var t_emp=new TemporaryEmp(201,"Duke William");
+// var ts=new t(2011,"qqDuke William");
+// document.writeln(p_emp.id+" "+p_emp.name+"<br>");
+// document.writeln(t_emp.id+" "+t_emp.name);
+// document.writeln(ts.id+" "+ts.name+"<br>");
+
+
+
+    //     const person = [
+    //          "John",
+    //          "Doe",
+    //          50,
+    //          "blue"
+    // ];
+    //     const [a,b,c] = person;
+    //     console.log(c);
+    //     const personS = [
+    //         {
+    //             firstName: "John",
+    //             lastName: "Doe",
+    //             age: 50,
+    //             eyeColor: "blue",
+    //             ids : Symbol('h', 'qq')
+    //         },
+    //         {
+    //             firstName: "John",
+    //             lastName: "Doe",
+    //             age: 50,
+    //             eyeColor: "blue",
+    //             ids : Symbol('ss', 'qq')
+    //         }
+    //     ];
+    // console.log(map.get(personS));
+    // for(i in c){
+    //     document.write(i);    
+    // }
+    // function myname(fi,lnm=undefined){
+
+    // }
+    // not cleared
+    // var repeatedCharA = (function (length,q) 
+    // { 
+    // 	var s = ''; 
+    // 	for (var i = 0; i < length; i++,q--) 
+    // 	{ 
+    //         s += '   A';
+    //         document.write("<br> "+s+q);
+
+    // 		// console.log(s);
+    // 		console.log(q);
+    // 	}
+    // 	 return s; 
+    // }(5,7));	
+    // console.log(repeatedCharA);
+    // finished
+
+
+    // var myRe = new RegExp('(a.c)d');
+    // var myArray = myRe.exec('eaxcda');
+    // console.log(myArray); 
+    // personS.map(get);
+    // function get(i){
+    //     return [i.firstName,i.lastName,i.age,i.eyeColor].join(" ");
+    // }
+    // c=personS.values();
+
+
+    // var txt = "metaprogramming";
+    // document.write(txt.slice(4, 7));
+    // document.write("<br>");
+    // document.write(txt.slice(4, 11));
+    // // document.write(txt.chunk(4,7));
+    // // document.write(txt.chunk(4,11));
+    // document.write("<br>");
+
+
+    // document.write(txt.substring(4, 11));
+    // document.write("<br>");
+    // document.write(txt.substring(-4, 7));
+    // document.write("<br>");
+    // document.write(txt.slice(4));
+    // document.write("<br>");
+    // document.write(txt.substr(4,11));
+    // document.write(txt.repeat(2));
+
+    // function m(console x:String = '45', int y): Number {
+    //     return x * y;
+    // }
+    // var a = 2.0, b = 0.3;
+    // var z = m(a, b);
+    // // let id = Symbol('h', 'qq');
+    // personS[id] = 140354;
+    // person[id] = '14035qqq3';
+
+    // person.id = 11;
+    // console.log(personS[id]);
+    // console.log(person[id]);
+
+    // console.log(person.id);
+    // console.log(personS);
+    // // Now person[id] = 140353
+    // // but person.id is still undefined
+    // console.warn(id.description);
+
+// var s = 0.2 + 0.1;
+// console.log(s); // 0.7999999999999999
+// var t = 0.3 + 0.5;
+// console.log(t); 
+// var q='square';
+// c=q.charAt(10);
+// console.log(c);
+// function average(a, b) {
+//   return (a + b)/2;
+// }
+
+// console.log(average(2, 1));
+
+/* function Animal(){
+    this.sound='animal sound';
+}
+Animal.prototype.makesound=function(){
+    console.log(this.sound);
+}
+function Dog(){
+    this.sound='woof';
+}
+
+// dog=new Animal();
+var dog=new Dog();
+dog.makesound(); */
+
+// function Supplier(){
+//     this.supply=function(){
+//         return this;
+//     };
+// }
+// var supplier=new Supplier();
+// var supply=supplier.supply();
+// var com=(supplier===supply);
+// console.log(typeof supply);
+// console.log(typeof supplier);
+
+
+
+//somthing other
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+ctx.background("black");
+class Bubble{
+    constructor(x,y,r){
+        this.x=x;
+        this.y=y;
+        this.r=r;
+    }
+    moves(){
+        this.x=this.x + random(5,-5);
+        this.y=this.y + random(5,-5);
+    }
+    show(){
+        stroke(255);
+        strokeWeight(4);
+        noFill();
+        ellipse(this.x, this.y, this.r*2);
+    }
+}
+let bubble;
+let bubble2;
+
+function setup(){
+    createCanvas(600,400);
+    bubble=new Bubble(200, 200, 40);
+    bubble2=new Bubble(400, 200, 20);
+}
+function draw(){
+    background(0);
+    bubble.move();
+    bubble.show();
+    
+    bubble2.move();
+    bubble2.show();
+
+}
+
+</script>

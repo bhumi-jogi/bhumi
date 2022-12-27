@@ -1,0 +1,177 @@
+<html>
+
+<head>
+	<title>Calculator</title>
+	<style type="css">
+
+	</style>
+</head>
+
+<body>
+	<input type="text" class="cleardata" name="fvalue" id="f"><br><br>
+	<!-- 	
+<button type="button" name="btn1" value="1" id="btn">1</button>
+<button type="button" name="btn2" value="2" id="btn">2</button>
+<button type="button" name="btn3" value="3" id="btn">3</button>
+<button type="button" name="btnp" value ="+" onclick="add(document.getElementById('f').value,document.getElementById('s').value)">+</button><br><br>
+<button type="button" name="btn4" value="4">4</button>
+<button type="button" name="btn5" value="5">5</button>
+<button type="button" name="btn6" value="6">6</button>
+<button type="button" name="btns" value ="-" onclick="sub(document.getElementById('f').value,document.getElementById('s').value)">-</button><br><br>
+<button type="button" name="btn7" value="7">7</button>
+<button type="button" name="btn8" value="8">8</button>
+<button type="button" name="btn9" value="9">9</button>
+<button type="button" name="btnm" value ="*" onclick="mul(document.getElementById('f').value,document.getElementById('s').value)">*</button>
+<br><br>
+<button type="button" name="btn0" value="0">0</button>
+
+<button type="button" name="btne" onclick="clear()">cl</button>
+<button type="button" name="btne" value ="=" onclick="equ()">=</button>
+<button type="button" name="btnd" value ="/" onclick="div(document.getElementById('f').value,document.getElementById('s').value)">/</button> -->
+
+	<button type="button" name="btn1" value="1" class="btn">1</button>
+	<button type="button" name="btn2" value="2" class="btn">2</button>
+	<button type="button" name="btn3" value="3" class="btn">3</button>
+	<button type="button" name="btnp" value="+" class="btn">+</button><br><br>
+	<button type="button" name="btn4" value="4" class="btn">4</button>
+	<button type="button" name="btn5" value="5" class="btn">5</button>
+	<button type="button" name="btn6" value="6" class="btn">6</button>
+	<button type="button" name="btns" value="-" class="btn">-</button><br><br>
+	<button type="button" name="btn7" value="7" class="btn">7</button>
+	<button type="button" name="btn8" value="8" class="btn">8</button>
+	<button type="button" name="btn9" value="9" class="btn">9</button>
+	<button type="button" name="btnm " value="*" class="btn">*</button>
+	<br><br>
+	<button type="button" name="btn0" value="0" class="btn">0</button>
+
+	<button type="button" name="btne" onclick="clear()">cl</button>
+	<button type="button" name="btn" value="=" class="btn" onclick="equ()">=</button>
+	<button type="button" name="btnd" value="/" class="btn">/</button><br><br>
+	<button type="button" value="factorial" onclick="factorial(document.getElementById('f').value)">factorial</button>
+	<button type="button" value="fibonacci" onclick="fibonacci(document.getElementById('f').value)">fibonacci</button>
+
+
+</body>
+<script type="text/javascript">
+	document.getElementById("f").readOnly = true;
+	function equ() {
+
+
+	}
+	let btn = document.getElementsByClassName('btn');
+	var v = document.getElementById("f");
+	for (i = 0; i < btn.length; i++) {
+		btn[i].addEventListener("click", function () {
+			
+			v.value += this.value;
+			if (String(this.value) == "=") {
+				split1 = v.value.split(/[-+*/]+/);
+				console.log(split1);
+				for (i = 0; i < split1.length; i++) {			
+					split1.every();
+			// 	if (String(this.value) == "=") {
+			// 		stra = v.value.length - 1;
+			// 		console.log(stra);
+			// 		/*for(j=0;j<stra.length;j++)
+			// 		{
+			// 			console.log(stra);
+			// 		}	
+			// 		//if (String(this.value) == "+" || String(this.value) == "-" || String(this.value) == "*" || String(this.value) == "/") {
+						
+			// 			/*switch (s) {
+			// 				case "+":
+			// 					add(q1, q2);
+			// 					break;
+			// 				case "-":
+			// 					sub(q1, q2);
+			// 					break;
+			// 				case "*":
+			// 					mul(q1, q2);
+			// 					break;
+			// 				case "/":
+			// 					div(q1, q2);
+			// 					break;
+
+			// 				default:
+			// 					break;
+			// 			}*/
+					}
+			// 		//s= v.value.substring(0,stra);
+			// 	// }
+			 }
+			// if(v.value=="=")
+			// {
+			// 	alert("click on equal to");
+			// }
+
+
+
+		})
+
+	}
+	function factorial(fvalue) {
+		s = parseInt(fvalue);
+		if (s < 0) {
+			alert('Error! Factorial for negative number does not exist.');
+		}
+		else if (s === 0) {
+			alert(`The factorial of ${s} is 1.`);
+		}
+
+		// if number is positive
+		else {
+			let fact = 1;
+			for (i = 1; i <= s; i++) {
+				fact *= i;
+			}
+			alert(`The factorial of ${s} is ${fact}.`);
+			clear();
+		}
+	}
+
+	function fibonacci(fvalue) {
+		s = parseInt(fvalue);
+		let n1 = 0, n2 = 1, nextTerm;
+		for (let i = 1; i <= s; i++) {
+			nextTerm = n1 + n2;
+			n1 = n2;
+			n2 = nextTerm;
+
+		}
+		alert(`The fibonacci of ${s} is ${n2}.`);
+		clear();
+	}
+
+	function add(fvalue, svalue) {
+
+		s = parseFloat(fvalue) + parseFloat(svalue);
+		alert("sum of values: " + s);
+		clear();
+	}
+	function sub(fvalue, svalue) {
+		s = parseFloat(fvalue) - parseFloat(svalue);
+		alert("subraction of values: " + s);
+		clear();
+	}
+	function mul(fvalue, svalue) {
+		s = parseFloat(fvalue) * parseFloat(svalue);
+		alert("multiplication of values: " + s);
+		clear();
+	}
+	function div(fvalue, svalue) {
+		s = parseFloat(fvalue) / parseFloat(svalue);
+		alert("division of values: " + s);
+		clear();
+	}
+	function clear() {
+		q = [];
+		q = document.getElementsByClassName("cleardata");
+		for (i = 0; i < q.length; i++) {
+			q[i].value = "";
+		}
+	}
+
+
+</script>
+
+</html>

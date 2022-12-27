@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input type="number" placeholder="Enter value" id="inf">
+    <button type="submit" value="Fibonacci" onclick="fibonacci(document.getElementById('inf').value)">Fibonacci</button>
+    <button type="submit" value="Factorial" onclick="factorial(document.getElementById('inf').value)">Factorial</button>
+    <button type="submit" value="power" onclick="power(document.getElementById('inf').value)">Power</button>
+
+    <p id="demo"></p>
+    
+
+    <script>
+
+        fibonacci = function (numMax) {
+            q=numMax
+            numMax-=1;
+            for (var fibArray = [0, 1], i = 0, j = 1, k = 0; k < numMax; i = j, j = x, k++) {
+                x = i + j;
+                fibArray.push(x);
+            }
+                 document.getElementById("demo").innerHTML =`fibonacci of ${q} is ${fibArray}`;
+        }
+
+        function power(fvalue) {
+            s = parseInt(fvalue);
+            f = s * s;
+            document.getElementById("demo").innerHTML = `Power of ${s} * ${s} = ${f}`;
+        }
+        function factorial(fvalue) {
+            s = parseInt(fvalue);
+            if (s < 0) {
+                document.getElementById("demo").innerHTML ='Error! Factorial for negative number does not exist.';
+            }
+            else if (s === 0) {
+                document.getElementById("demo").innerHTML =`The factorial of ${s} is 1.`;
+            }
+            else {
+                let fact = 1, t = "";
+                for (i = 1; i <= s; i++) {
+                    fact *= i;
+                    t += i + "*";
+                    u = t.slice(0, -1) + '=';
+                    document.getElementById("demo").innerHTML =`factorial of ${u} is ${fact}`;
+                }
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

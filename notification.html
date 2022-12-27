@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            Notification Program   
+        </title>
+    </head>
+    <body>
+        <script>
+            function show(){
+                const n=new Notification('new msg',{
+                    body:'hey this is notification'
+                });
+            }
+            console.log(Notification.permission);
+
+            if(Notification.permission==="granted"){
+                show();
+            }else if(Notification.permission!=="denied"){
+                Notification.requestPermission().then(permission=>{
+                    if(permission=="granted")
+                    {
+                        show();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

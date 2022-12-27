@@ -1,0 +1,179 @@
+<html>
+
+<head>
+    <title>
+        Javascript promise examples
+    </title>
+</head>
+
+<body>
+    <button type="button" value="promise 1" onclick="promise1()">Promise 1</button>
+    <button type="button" value="promise 2" onclick="promise2()">Promise 2</button>
+    <button type="button" value="promise 3" onclick="promptForDishChoice()">Promise 3</button>
+    <button type="button" value="promise 4" onclick="promise4()">Promise 4</button>
+    <button type="button" value="promise 5" onclick="promise5()">Promise 5</button>
+
+    <script type="module">
+        import * as f from './first.js';
+        f.say();
+        function promise1() {
+            a = 5;
+            let q = new Promise(function (res, rej) {
+                for (i = 0; i < 10; i++) {
+                    console.log(i);
+                    if (a != i) {
+                        res(console.log("a and b is not equal value"));
+                    }
+                    else {
+                        rej(console.log("a and b is equal value"));
+                    }
+                }
+            });
+            q.then(function (value) {
+                console.log("this is then");
+            })
+                .catch(function (err) {
+                    console.log("this is catch");
+                })
+                .finally(function (err) {
+                    console.log("this is finally");
+                })
+        }
+        function promise2() {
+            a = 5;
+            let q = new Promise(function (res, rej) {
+                for (i = 0; i < 10; i++) {
+                    console.log(i);
+                    if (a == i) {
+                        res(console.log("a and b is equal value"));
+                    }
+                    else {
+                        rej(console.log("a and b is not equal value"));
+                    }
+                }
+            });
+            q.then(function (value) {
+                console.log("this is then");
+            })
+                .catch(function (err) {
+                    console.log("this is catch");
+                })
+                .finally(function (err) {
+                    console.log("this is finally");
+                })
+        }
+        function promise5() {
+
+            a = 5;
+            b = 10;
+            return new Promise(function (res, rej) {
+                if (a < b) {
+                    res(console.log("a is greater"));
+                }
+                else {
+                    rej(console.log("b is greater"));
+                }
+            });
+            q.then(function (value) { res() })
+                .catch(function (error) { rej() });
+        }
+        function promise4() {
+            a = 5;
+            b = 10;
+            return new Promise(function (res, rej) {
+                if (a != b) {
+                    res(console.log("a and b is not equal value"));
+                }
+                else {
+                    rej(console.log("a and b is equal value"));
+                }
+            });
+            q.then(function (value) { res() })
+                .catch(function (error) { rej() });
+        }
+        function promise3() {
+            // a = 0;
+            // let q = new Promise(function (res, rej) {
+            //     if (a > 0) {
+            //             res(console.log("a is positive"));
+            //         }
+            //         else if(a<0){
+            //             rej(console.log("a is negative"));
+            //         }
+            //         else{
+            //             console.log("a is zero");
+            //         }
+            // });
+            // q.then(function (value) {
+            //     console.log("this is then");
+            // })
+            // .catch(function(err){
+            //     console.log("this is catch");
+            // })
+            // .finally(function(err){
+            //     console.log("this is finally");
+            // })
+        }
+        function promptForDishChoice() {
+  return new Promise((resolve, reject) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = `
+<form method="dialog">
+  <p>What would you like to eat?</p>
+  <select>
+    <option value="pizza">Pizza</option>
+    <option value="pasta">Pasta</option>
+    <option value="salad">Salad</option>
+  </select>
+  <menu>
+    <ui><button value="cancel">Cancel</button></ui>
+    <ui><button type="submit" value="ok">OK</button></ui>
+  </menu>
+</form>
+    `;
+    dialog.addEventListener("close", () => {
+      if (dialog.returnValue === "ok") {
+        resolve(dialog.querySelector("select").value);
+      } else {
+        reject(new Error("User cancelled dialog"));
+      }
+    });
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
+async function fetchPrices() {
+  const response = await fetch("/prices");
+  return await response.json();
+}
+        // const p1 = new Promise((resolve, reject) => {
+        //         setTimeout(() => resolve("one"), 1000);
+        //     });
+        //     const p2 = new Promise((resolve, reject) => {
+        //         setTimeout(() => resolve("two"), 2000);
+        //     });
+        //     const p3 = new Promise((resolve, reject) => {
+        //         setTimeout(() => resolve("three"), 3000);
+        //     });
+        //     const p4 = new Promise((resolve, reject) => {
+        //         setTimeout(() => resolve("four"), 4000);
+        //     });
+        //     const p5 = new Promise((resolve, reject) => {
+        //         reject(new Error("reject"));
+        //     });
+
+        //     // Using .catch:
+        //     Promise.all([p1, p2, p3, p4, p5])
+        //         .then((values) => {
+        //             console.log(values);
+        //         })
+        //         .catch((error) => {
+        //             console.error(error.message);
+        //         });
+
+            
+    </script>
+</body>
+
+</html>
